@@ -1,33 +1,50 @@
-# Organizador de Rostos
+# Projeto de Transferência de Imagens
 
-Este projeto utiliza a biblioteca `face_recognition` para identificar rostos em imagens e organizá-los em pastas, atribuindo a cada rosto uma identificação única (ex.: Pessoa_1, Pessoa_2, etc.).
+Este projeto em Python automatiza a transferência de arquivos de imagem de uma pasta de origem para uma pasta de destino, identificando arquivos pelas suas extensões (como PNG, JPG, GIF, BMP, etc.) de forma recursiva. Foi desenvolvido com a assistência do ChatGPT, utilizando informações e estratégias de programação sugeridas durante nossas conversas. Além disso, foi empregada a pesquisa no Google Gemini para otimizar soluções e abordagens de código.
 
-## Configuração
+## Funcionalidades
 
-Antes de começar, certifique-se de que você tem Python instalado em sua máquina e que as dependências necessárias estão instaladas. Este projeto requer a instalação da biblioteca `face_recognition` e `Pillow`.
+- **Identificação de Imagens:** O script identifica arquivos de imagem com base em suas extensões.
+- **Transferência Recursiva:** Pesquisa e transfere imagens de forma recursiva dentro de diretórios e subdiretórios.
+- **Tratamento de Duplicatas:** Renomeia automaticamente arquivos duplicados ao transferi-los, evitando a sobreposição de arquivos.
+- **Log de Atividades:** Gera um log de todas as transferências realizadas para facilitar a revisão e auditoria.
+- **Configuração Flexível:** Permite ao usuário especificar as extensões de arquivo desejadas e os diretórios de origem e destino através de argumentos de linha de comando.
 
-### Instalação das Dependências
+## Tecnologias Utilizadas
+
+- **Python:** Linguagem de programação utilizada para o desenvolvimento do projeto.
+- **ChatGPT:** Fornecido pela OpenAI, foi utilizado para orientações sobre lógica de programação, estruturação de código e resolução de problemas.
+- **Google Gemini:** Empregado para pesquisas complementares e validação de estratégias de implementação.
+
+## Pré-requisitos
+
+Para executar este projeto, você precisará de Python instalado em sua máquina. Não são necessárias bibliotecas externas adicionais além das padrão do Python.
+
+## Como Usar
+
+1. Clone o repositório para sua máquina local.
+2. Abra o terminal e navegue até o diretório do projeto.
+3. Execute o script com os diretórios de origem e destino como argumentos, opcionalmente especificando as extensões de arquivo:
 
 ```bash
-pip install face_recognition Pillow
+python src/transferir_imagens.py /caminho/para/origem /caminho/para/destino --extensoes .png .jpg
 ```
 
-### Uso
+## Contribuindo
+Sua contribuição é bem-vinda! Sinta-se à vontade para forkar o projeto, fazer suas alterações e abrir um Pull Request para contribuir com melhorias e novas funcionalidades.
 
-Para usar este script, atualize as variáveis diretorio_origem e diretorio_destino no script organizar_rostos.py para corresponder ao seu diretório de imagens de origem e ao diretório de destino desejado, respectivamente.
+## Licença
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
-Execute o script:
+## Agradecimentos
+Agradecimento especial ao ChatGPT e ao Google Gemini por facilitarem o processo de pesquisa e desenvolvimento deste projeto.
 
-```py
-python organizar_rostos.py
-```
 
-O script identificará rostos nas imagens do diretório de origem e os organizará em subpastas no diretório de destino, cada uma nomeada com uma identificação única para cada rosto detectado.
+### Notas Adicionais
 
-### Contribuições
+- **Personalização:** Certifique-se de ajustar o README conforme necessário para refletir qualquer funcionalidade adicional ou alterações específicas que você tenha feito no projeto.
+- **Licença:** Inclua um arquivo de licença no seu repositório se ainda não o fez. A licença MIT mencionada é apenas um exemplo.
 
-Contribuições para este projeto são bem-vindas. Por favor, leia as diretrizes de contribuição antes de submeter uma pull request.
+Este README aprimorado oferece um guia completo para qualquer pessoa interessada em entender e utilizar seu projeto, destacando a metodologia de desenvolvimento e as ferramentas envolvidas.
 
-### Licença
 
-Este projeto está licenciado sob a MIT License - veja o arquivo LICENSE para detalhes.
