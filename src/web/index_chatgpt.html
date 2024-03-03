@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Face Recognition Display</title>
+<style>
+  body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
+  }
+  .image-container {
+    position: relative;
+    display: inline-block;
+  }
+  canvas {
+    border: 1px solid black;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+
+<div class="image-container">
+  <img id="refImage" src="../images/model_1.JPG" alt="Reference Image">
+  <canvas id="refCanvas"></canvas>
+</div>
+
+<div class="image-container">
+  <img id="identImage" src="../images/model_2.JPG" alt="Identified Image">
+  <canvas id="identCanvas"></canvas>
+</div>
+
+<script>
+  // Assumindo que você tem dados similares para a imagem identificada
+  // Você precisará ajustar o código para carregar esses dados dinamicamente
+
+  // Função para desenhar caixa delimitadora e pontos de referência
+  function drawFaceData(canvasId, imgId, faceData) {
+    const canvas = document.getElementById(canvasId);
+    const ctx = canvas.getContext('2d');
+    const image = document.getElementById(imgId);
+
+    image.onload = function() {
+      // Ajusta o tamanho do canvas para igualar ao da imagem
+      canvas.width = image.width;
+      canvas.height = image.height;
+
+      // Desenha a caixa delimitadora
+      const box = faceData.BoundingBox;
+      ctx.beginPath();
+      ctx.rect(box.Left * image.width, box.Top * image.height, box.Width * image.width, box.Height * image.height);
+      ctx.strokeStyle = 'red';
+      ctx.stroke();
+
+      // Desenha os pontos de referência
+      faceData.Landmarks.forEach(function(landmark) {
+        ctx.beginPath();
+        ctx.arc(landmark.X * image.width, landmark.Y * image.height, 5, 0, 2 * Math.PI);
+        ctx.fillStyle = 'green';
+        ctx.fill();
+      });
+    };
+  }
+
+  // Substitua os dados abaixo com os dados reais do JSON que você tem
+  const refFaceData = {
+    "BoundingBox": { "Height": 0.36517313, "Left": 0.43615142, "Top": 0.3155914, "Width": 0.165126 },
+    "Landmarks": [
+      { "Type": "eyeLeft", "X": 0.48606238, "Y": 0.44462585 },
+      { "Type": "eyeRight", "X": 0.5587316, "Y": 0.44978592 },
+      { "Type": "mouthLeft", "X": 0.48834547, "Y": 0.58357936 },
+      { "Type": "mouthRight", "X": 0.548805, "Y": 0.58793616 },
+      { "Type": "nose", "X": 0.51915073, "Y": 0.5029711 }
+    ]
+  }; // Dados de referência
+  const identFaceData = {
+    "BoundingBox": { "Height": 0.36517313, "Left": 0.43615142, "Top": 0.3155914, "Width": 0.165126 },
+    "Landmarks": [
+      { "Type": "eyeLeft", "X": 0.48606238, "Y": 0.44462585 },
+      { "Type": "eyeRight", "X": 0.5587316, "Y": 0.44978592 },
+      { "Type": "mouthLeft", "X": 0.48834547, "Y": 0.58357936 },
+      { "Type": "mouthRight", "X": 0.548805, "Y": 0.58793616 },
+      { "Type": "nose", "X": 0.51915073, "Y": 0.5029711 }
+    ]
+  }; // Dados da imagem identificada
+
+  drawFaceData('refCanvas', 'refImage', refFaceData);
+  drawFaceData('identCanvas', 'identImage', identFaceData);
+</script>
+</body>
+</html>

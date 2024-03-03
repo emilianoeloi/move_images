@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparação de Rostos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Comparação de Rostos</h1>
+        <div class="image-container">
+            <img id="reference-image" src="../images/model_1.JPG" alt="Imagem de referência">
+            <img id="compared-image" src="../images/model_2.JPG" alt="Imagem a ser comparada">
+        </div>
+        <div class="result-container">
+            <p id="result">Resultado da comparação...</p>
+        </div>
+    </div>
+    <script src="script_gemini.js"></script>
+</body>
+</html>

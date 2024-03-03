@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition Display</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<div class="image-container" id="refContainer">
+    <img id="refImage" src="{{ url_for('static', filename='images/model_1.JPG') }}" alt="Reference Image">
+    <canvas id="refCanvas"></canvas>
+</div>
+
+<div class="image-container" id="identContainer">
+    <img id="identImage" src="{{ url_for('static', filename='images/model_2.jpg') }}" alt="Identified Image">
+    <canvas id="identCanvas"></canvas>
+</div>
+
+<script type="text/javascript">
+    // Passando dados do Flask para JavaScript
+    var refData = {{ ref_data | tojson }};
+    var identData = {{ ident_data | tojson }};
+    console.info(refData)
+    console.info(identData)
+</script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

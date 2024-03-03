@@ -1,50 +1,49 @@
-# Projeto de Transferência de Imagens
+# Projeto de Transferência de Imagens com Interface de Visualização Facial
 
-Este projeto em Python automatiza a transferência de arquivos de imagem de uma pasta de origem para uma pasta de destino, identificando arquivos pelas suas extensões (como PNG, JPG, GIF, BMP, etc.) de forma recursiva. Foi desenvolvido com a assistência do ChatGPT, utilizando informações e estratégias de programação sugeridas durante nossas conversas. Além disso, foi empregada a pesquisa no Google Gemini para otimizar soluções e abordagens de código.
+Este projeto em Python não só automatiza a transferência de arquivos de imagem de uma pasta de origem para uma pasta de destino, mas também fornece uma interface web para visualizar informações de reconhecimento facial em imagens identificadas. Utilizando tecnologias como Flask para o backend e HTML/CSS/JavaScript para o frontend, o projeto permite a identificação e exibição de pontos de referência facial e caixas delimitadoras sobre as imagens processadas. Desenvolvido com a orientação do ChatGPT e pesquisas no Google Gemini, este projeto abrange desde a programação backend até o desenvolvimento de interfaces web front-end.
 
-## Funcionalidades
+## Funcionalidades Adicionais
 
-- **Identificação de Imagens:** O script identifica arquivos de imagem com base em suas extensões.
-- **Transferência Recursiva:** Pesquisa e transfere imagens de forma recursiva dentro de diretórios e subdiretórios.
-- **Tratamento de Duplicatas:** Renomeia automaticamente arquivos duplicados ao transferi-los, evitando a sobreposição de arquivos.
-- **Log de Atividades:** Gera um log de todas as transferências realizadas para facilitar a revisão e auditoria.
-- **Configuração Flexível:** Permite ao usuário especificar as extensões de arquivo desejadas e os diretórios de origem e destino através de argumentos de linha de comando.
+- **Interface Web para Visualização Facial:** Uma interface web simples, mas eficaz, que exibe imagens lado a lado, mostrando tanto a imagem de referência quanto a imagem com rostos identificados, incluindo caixas delimitadoras e pontos de referência faciais.
+- **Visualização de Dados de Reconhecimento Facial:** Utiliza dados de reconhecimento facial para desenhar caixas delimitadoras e pontos de referência diretamente nas imagens através de um canvas HTML, permitindo uma fácil identificação visual de rostos nas imagens.
 
-## Tecnologias Utilizadas
+## Configuração do Projeto Web
 
-- **Python:** Linguagem de programação utilizada para o desenvolvimento do projeto.
-- **ChatGPT:** Fornecido pela OpenAI, foi utilizado para orientações sobre lógica de programação, estruturação de código e resolução de problemas.
-- **Google Gemini:** Empregado para pesquisas complementares e validação de estratégias de implementação.
+O projeto web é construído sobre o Flask, um microframework web em Python, que serve a interface web e processa imagens para reconhecimento facial:
 
-## Pré-requisitos
+### Pré-requisitos para o Web
 
-Para executar este projeto, você precisará de Python instalado em sua máquina. Não são necessárias bibliotecas externas adicionais além das padrão do Python.
+- Flask: Para rodar o servidor web e processar as requisições.
+- face_recognition: Para identificar rostos e pontos de referência nas imagens.
 
-## Como Usar
+### Como Rodar o Projeto Web
 
-1. Clone o repositório para sua máquina local.
-2. Abra o terminal e navegue até o diretório do projeto.
-3. Execute o script com os diretórios de origem e destino como argumentos, opcionalmente especificando as extensões de arquivo:
+1. Certifique-se de ter o Python e o pip instalados.
+2. Instale as dependências necessárias com `pip install -r requirements.txt`, que incluirá Flask e face_recognition.
+3. Execute o arquivo `app.py` para iniciar o servidor Flask.
+4. Acesse a interface web através do navegador em `http://localhost:5000`.
 
-```bash
-python src/transferir_imagens.py /caminho/para/origem /caminho/para/destino --extensoes .png .jpg
-```
+## Como Usar a Interface Web
+
+Após iniciar o servidor Flask, você poderá:
+
+1. Carregar imagens de referência e imagens a serem identificadas na interface web.
+2. Visualizar automaticamente os resultados do reconhecimento facial, incluindo caixas delimitadoras e pontos de referência, sobre as imagens.
+
+## Tecnologias Adicionais Utilizadas
+
+- **Flask:** Microframework web utilizado para criar a interface web do projeto.
+- **HTML/CSS/JavaScript:** Utilizados para desenvolver a interface do usuário e lógica front-end para a visualização de dados de reconhecimento facial.
 
 ## Contribuindo
-Sua contribuição é bem-vinda! Sinta-se à vontade para forkar o projeto, fazer suas alterações e abrir um Pull Request para contribuir com melhorias e novas funcionalidades.
+
+Estamos abertos a contribuições! Se você tem ideias para melhorar a interface ou expandir as funcionalidades de reconhecimento facial, por favor, contribua através de Pull Requests.
 
 ## Licença
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
-## Agradecimentos
-Agradecimento especial ao ChatGPT e ao Google Gemini por facilitarem o processo de pesquisa e desenvolvimento deste projeto.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE.md para detalhes.
 
+## Agradecimentos Especiais
 
-### Notas Adicionais
-
-- **Personalização:** Certifique-se de ajustar o README conforme necessário para refletir qualquer funcionalidade adicional ou alterações específicas que você tenha feito no projeto.
-- **Licença:** Inclua um arquivo de licença no seu repositório se ainda não o fez. A licença MIT mencionada é apenas um exemplo.
-
-Este README aprimorado oferece um guia completo para qualquer pessoa interessada em entender e utilizar seu projeto, destacando a metodologia de desenvolvimento e as ferramentas envolvidas.
-
-
+- **OpenAI (ChatGPT):** Por fornecer orientações e insights valiosos para o desenvolvimento do projeto.
+- **Google Gemini:** Por oferecer uma plataforma de pesquisa que ajudou a solucionar desafios de implementação.
